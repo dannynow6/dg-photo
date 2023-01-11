@@ -36,7 +36,7 @@ class Photo(models.Model):
     camera_model = models.CharField(max_length=100)
     format = models.CharField(max_length=2, choices=FORMAT_CHOICES)
     description = models.CharField(max_length=250, blank=True)
-    year_taken = models.DateField(auto_now_add=True)
+    year_taken = models.DateField(blank=True)
     lens_make = models.CharField(max_length=125, blank=True)
     lens_model = models.CharField(max_length=125, blank=True)
     focal_length = models.CharField(max_length=50, blank=True)

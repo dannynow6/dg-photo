@@ -21,16 +21,18 @@
           <br />
           <p class="card-text text-white text-center">Explore photos by DG, learn, and create your own gallery.</p>
         </div> 
-        <div class="card-footer">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'dg_photography:index' %}">Home</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
-      <br />
+    <br />
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'dg_photography:index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dg_photography:new_photo' %}">Add Photo</a>
+      </li>
+    </ul>
+    <br />
     <div class="jumbotron mx-3 px-5">
         <img class="pl-4" id="logo-main" src="{% static 'img/logo_128.png' %}" />
         <h1 class="pl-2 display-4 pb-3" id="title-main">

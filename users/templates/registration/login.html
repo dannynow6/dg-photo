@@ -1,0 +1,14 @@
+{% extends "dg_photography/base.html" %} {% load static %} {% load bootstrap4 %}
+{% block content %} {% if form.errors %}
+<p class="m-4">Your username and password didn't match. Please try again.</p>
+{% endif %}
+<div class="m-4">
+  <form method="post" action="{% url 'users:login' %}">
+    {% csrf_token %} {{ form.as_p }}
+
+    <button class="btn btn-outline-success" name="submit">Log in</button>
+    <input type="hidden" name="next" value="{% url 'dg_photography:index' %}" />
+  </form>
+</div>
+
+{% endblock content %}

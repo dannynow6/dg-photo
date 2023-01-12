@@ -33,6 +33,23 @@
       </li>
     </ul>
     <br />
+    <ul class='nav justify-content-end'>
+      {% if user.is_authenticated %}
+      <div>
+        Hello, {{ user.username }}.
+        <br/>
+        <a class="nav-link mr-2" href="{% url 'users:logout' %}">Log out</a>
+      </div>
+      {% else %} 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:login' %}">Log in</a> 
+      </li>
+      {% endif %}
+    </ul>
+  </div>
     {% block content %}{% endblock content %}
     
     <footer class="text-center pt-4 border-top">

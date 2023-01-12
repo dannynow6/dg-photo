@@ -1,5 +1,6 @@
 from django import forms
 from .models import Photo
+from PIL import Image
 
 
 class PhotoForm(forms.ModelForm):
@@ -78,5 +79,5 @@ class PhotoForm(forms.ModelForm):
             "lens_make": forms.TextInput,
             "lens_model": forms.TextInput,
             "focal_length": forms.TextInput,
-            "picture": forms.ImageField,
+            "picture": forms.ClearableFileInput,
         }

@@ -13,7 +13,7 @@ def new_photo(request):
     if request.method != "POST":
         form = PhotoForm()
     else:
-        form = PhotoForm(data=request.POST)
+        form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("dg_photography:index")

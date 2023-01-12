@@ -40,6 +40,7 @@ class Photo(models.Model):
     lens_make = models.CharField(max_length=125, blank=True)
     lens_model = models.CharField(max_length=125, blank=True)
     focal_length = models.CharField(max_length=50, blank=True)
+    picture = models.ImageField(upload_to='photos/', blank=True)
 
     def __str__(self) -> str:
         """return a string representation of model"""

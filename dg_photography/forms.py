@@ -44,6 +44,7 @@ class PhotoForm(forms.ModelForm):
             "lens_make",
             "lens_model",
             "focal_length",
+            "picture",
         ]
         labels = {
             "type": "Type",
@@ -58,6 +59,7 @@ class PhotoForm(forms.ModelForm):
             "lens_make": "Lens Make",
             "lens_model": "Lens Model",
             "focal_length": "Focal Length",
+            "picture": "Picture",
         }
         choices = {
             "type": "TYPE_CHOICES",
@@ -76,4 +78,5 @@ class PhotoForm(forms.ModelForm):
             "lens_make": forms.TextInput,
             "lens_model": forms.TextInput,
             "focal_length": forms.TextInput,
+            "picture": forms.ImageField,
         }

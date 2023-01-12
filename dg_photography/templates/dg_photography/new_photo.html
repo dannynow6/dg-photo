@@ -3,7 +3,7 @@
 <div class="container w-75 p-4 my-4 border">
   <h3 class="text-secondary p-4 border-bottom">Enter New Photo Info</h3>
   <div class="container p-4 my-2">
-    <form action="{% url 'dg_photography:new_photo' %}" method="POST">
+    <form action="{% url 'dg_photography:new_photo' %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %} {{ form.as_p }}
       <button
         type="submit"

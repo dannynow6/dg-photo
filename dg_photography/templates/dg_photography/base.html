@@ -12,6 +12,17 @@
   </head>
 
   <body class="m-3">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'dg_photography:index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dg_photography:new_photo' %}">Add Photo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dg_photography:about' %}">About</a>
+      </li>
+    </ul>
     <div class="shadow-lg p-2 m-3">
       <div class="card">
         <img src="{% static 'img/shell.jpg' %}" />
@@ -25,18 +36,13 @@
     </div>
     <br />
     <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'dg_photography:index' %}">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'dg_photography:new_photo' %}">Add Photo</a>
-      </li>
       {% if user.is_authenticated %}
-      <div>
+      <li class="pt-2">
         Hello, {{ user.username }}.
-        <br/>
-        <a class="nav-link mr-2" href="{% url 'users:logout' %}">Log out</a>
-      </div>
+      </li>
+      <li>
+        <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+      </li>
       {% else %} 
       <li class="nav-item">
         <a class="nav-link" href="{% url 'users:register' %}">Register</a>

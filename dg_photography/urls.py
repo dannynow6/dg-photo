@@ -12,4 +12,6 @@ urlpatterns = [
     path("new_photo/", views.new_photo, name="new_photo"), 
     # A landing page for Dan G's Photography Website
     # path("dg_photos/", views.dg_photos, name="dg_photos"),
+    # About page for dg photography 
+    path("about/", views.about, name="about"), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

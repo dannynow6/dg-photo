@@ -24,3 +24,8 @@ def new_photo(request):
         "form": form,
     }
     return render(request, "dg_photography/new_photo.html", context)
+
+
+def about(request):
+    """dg photography about page"""
+    return render(request, "dg_photography/about.html")

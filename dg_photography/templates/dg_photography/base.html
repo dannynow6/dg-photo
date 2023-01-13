@@ -12,18 +12,29 @@
   </head>
 
   <body class="m-3">
-    <ul class="nav nav-tabs justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'dg_photography:index' %}">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'dg_photography:new_photo' %}">Add Photo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'dg_photography:about' %}">About</a>
-      </li>
-    </ul>
-    <br />
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'dg_photography:index' %}">
+        <img src="{% static 'img/logo_128.png' %}" width="30" height="30" class="d-inline-block align-top">
+        DG Photography
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'dg_photography:index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dg_photography:new_photo' %}">Add Photo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dg_photography:about' %}">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav> 
+    
     <ul class="nav justify-content-end">
       {% if user.is_authenticated %}
       <li class="pt-2">

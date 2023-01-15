@@ -28,4 +28,6 @@ def new_photo(request):
 
 def about(request):
     """dg photography about page"""
-    return render(request, "dg_photography/about.html")
+    photos = Photo.objects.order_by('type')
+    context = {'photos': photos}
+    return render(request, "dg_photography/about.html", context)

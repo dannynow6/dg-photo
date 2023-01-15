@@ -40,7 +40,7 @@ class Photo(models.Model):
     lens_make = models.CharField(max_length=125, blank=True)
     lens_model = models.CharField(max_length=125, blank=True)
     focal_length = models.CharField(max_length=50, blank=True)
-    picture = models.ImageField(upload_to='photos/', blank=True)
+    picture = models.ImageField(upload_to="photos/", blank=True)
 
     def __str__(self) -> str:
         """return a string representation of model"""
@@ -48,4 +48,8 @@ class Photo(models.Model):
         geo = self.location_country.title()
         id = self.id
         camera = self.camera_make.title()
-        return f"ID: {id} | {title} | Shot with {camera} | country: {geo}"
+        description = self.description
+        year = self.year_taken
+        return (
+            f"ID: {id} | {title} | {description} | Shot with {camera} in {geo} | {year}"
+        )

@@ -12,25 +12,12 @@
         </li>
     </div>
     <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Date Published</th>
-                    <th scope="col">View</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1 - article id</th>
-                    <td>Article title</td>
-                    <td>Article author</td>
-                    <td>Article date published</td>
-                    <td>Article link to View</td>
-                </tr>
-            </tbody>
-        </table>
+        <ul class="list-group">
+            {% for article in articles %}
+            <li class="list-group-item">{{ article.title }} | {{ article.author }} | {{ article.date_published }}</li>
+            {% empty %}
+            <li>There are no articles</li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock content %}

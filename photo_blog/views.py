@@ -7,7 +7,9 @@ from .forms import BlogArticleForm
 
 def photo_blog(request):
     """Basic landing page for Photo Blog Articles"""
-    return render(request, "photo_blog/photo_blog.html")
+    articles = BlogArticle.objects.order_by("id")
+    context = {"articles": articles}
+    return render(request, "photo_blog/photo_blog.html", context)
 
 
 def new_blog_article(request):

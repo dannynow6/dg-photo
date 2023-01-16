@@ -1,0 +1,32 @@
+{% extends 'dg_photography/base.html' %} {% load static %} {% load bootstrap4 %}
+{% block content %}
+    <div class="container">
+        <h2 class="text-center text-secondary display-4">Photography Articles</h2>
+        <br />
+        <p class="text-center text-secondary">
+            Discover, learn, and stay informed. 
+        </p>
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date Published</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1 - article id</th>
+                    <td>Article title</td>
+                    <td>Article author</td>
+                    <td>Article date published</td>
+                    <td>Article link to View</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

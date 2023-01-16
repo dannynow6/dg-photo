@@ -26,5 +26,5 @@ class BlogArticleForm(forms.ModelForm):
             "author": forms.TextInput,
             "image": forms.ClearableFileInput,
             "description": forms.TextInput,
-            "article": forms.TextArea,
+            "article": forms.Textarea,
         }

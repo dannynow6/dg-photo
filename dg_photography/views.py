@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # from django.contrib.auth.decorators import login_required
 from .models import Photo
-from .forms import PhotoForm
+from .forms import PhotoForm 
 
 # Main site page
 def index(request):

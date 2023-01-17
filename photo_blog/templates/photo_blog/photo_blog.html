@@ -11,10 +11,16 @@
             <a class="nav-link text-right" href="{% url 'photo_blog:new_blog_article' %}">Create New Article</a>
         </div>
     </div>
-    <div class="container">
+    <div class="container w-75">
         <ul class="list-group">
             {% for article in articles %}
-            <li class="list-group-item"><a href="{% url 'photo_blog:article' article.id %}">{{ article }}</a></li>
+            <li class="list-group-item">
+                <article class="mx-3">
+                    <h5>{{ article.title }}</h5>
+                    <p>by {{ article.author }}</p>
+                    <a href="{% url 'photo_blog:article' article.id %}"> View</a>
+                </article>
+            </li>
             {% empty %}
             <li>There are no articles</li>
             {% endfor %}

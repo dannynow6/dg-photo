@@ -18,7 +18,7 @@ def new_photo(request):
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("dg_photography:index")
+            return redirect("dg_photography:photos")
 
     context = {
         "form": form,

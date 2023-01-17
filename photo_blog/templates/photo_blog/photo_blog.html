@@ -1,15 +1,15 @@
 {% extends 'dg_photography/base.html' %} {% load static %} {% load bootstrap4 %}
 {% block content %}
     <div class="container">
-        <h2 class="text-center text-secondary display-4">Articles</h2>
+        <h2 class="text-center text-secondary display-4 pb-3 border-bottom border-secondary">Articles</h2>
         <br />
         <p class="text-center text-secondary">
             Discover, learn, and stay informed. 
         </p>
         <br />
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'photo_blog:new_blog_article' %}">Create New Article</a>
-        </li>
+        <div>
+            <a class="nav-link text-right" href="{% url 'photo_blog:new_blog_article' %}">Create New Article</a>
+        </div>
     </div>
     <div class="container">
         <ul class="list-group">

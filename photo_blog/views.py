@@ -25,3 +25,10 @@ def new_blog_article(request):
         "form": form,
     }
     return render(request, "photo_blog/new_blog_article.html", context)
+
+
+def article(request, article_id):
+    """Show a single article's contents and info"""
+    article = BlogArticle.objects.get(id=article_id)
+    context = {"article": article}
+    return render(request, "photo_blog/article.html", context)

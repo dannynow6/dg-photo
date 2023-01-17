@@ -10,4 +10,6 @@ urlpatterns = [
     path("photo_blog/", views.photo_blog, name="photo_blog"),
     # A page for submitting a new blog article
     path("new_blog_article/", views.new_blog_article, name="new_blog_article"),
+    # A Page for Single Article Contents
+    path("photo_blog/<int:article_id>/", views.article, name="article"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required 
 from .models import BlogArticle
 from .forms import BlogArticleForm
 
@@ -11,7 +12,7 @@ def photo_blog(request):
     context = {"articles": articles}
     return render(request, "photo_blog/photo_blog.html", context)
 
-
+@login_required 
 def new_blog_article(request):
     """New Blog Article Form"""
     if request.method != "POST":

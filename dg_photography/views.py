@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # from django.contrib.auth.decorators import login_required
 from .models import Photo
@@ -10,6 +11,7 @@ def index(request):
     return render(request, "dg_photography/index.html")
 
 
+@login_required
 def new_photo(request):
     """New photo info submitted"""
     if request.method != "POST":

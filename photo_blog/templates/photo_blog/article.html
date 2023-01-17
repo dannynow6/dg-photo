@@ -6,9 +6,15 @@
     <p class="text-right text-muted">By {{ article.author }}</p>
     <p class="text-right text-muted">Published {{ article.date_published }}</p>
     <br />
+
     <p class="text-center text-secondary">Description: {{ article.description }}</p>
 </article>
 <article>
+    {% if article.image %}
+    <img height="350" width="750" src="{{ article.image.url }}">
+    {% else %}
+    <p>No image</p>
+    {% endif %}
     <p class="border border-muted">{{ article.article }}</p>
 </article>
 {% endblock content %}

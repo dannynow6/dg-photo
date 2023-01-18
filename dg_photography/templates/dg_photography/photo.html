@@ -14,7 +14,7 @@
     </article>
     <br />
     {% if photo.picture %}
-    <img height="350" width="750" src="{{ photo.picture.url }}">
+    <img src="{{ photo.picture.url }}" style="max-width:750px;max-height:500px;">
     {% else %}
     <p>No image</p>
     {% endif %}

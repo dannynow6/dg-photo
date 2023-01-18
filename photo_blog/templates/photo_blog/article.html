@@ -13,7 +13,7 @@
 <br />
 <article>
     {% if article.image %}
-    <img height="350" width="750" src="{{ article.image.url }}">
+    <img src="{{ article.image.url }}" style="max-width:750px;max-height:500px;">
     <br />
     {% else %}
     <p>No image</p>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+import random
 
 # from django.contrib.auth.decorators import login_required
 from .models import Photo
@@ -32,8 +33,11 @@ def new_photo(request):
 
 def about(request):
     """dg photography about page"""
-    photos = Photo.objects.order_by("year_taken")
-    context = {"photos": photos}
+    photos = Photo.objects.all()
+    x = random.randint(1, len(photos))
+    photo_id = x
+    photo = Photo.objects.get(id=photo_id)
+    context = {"photo": photo}
     return render(request, "dg_photography/about.html", context)
 
 

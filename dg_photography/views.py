@@ -57,3 +57,19 @@ def my_photos(request):
     my_photos = Photo.objects.filter(owner=request.user).order_by("year_taken")
     context = {"my_photos": my_photos}
     return render(request, "dg_photography/my_photos.html", context)
+
+
+@login_required
+def edit_photo(request, photo_id):
+    """User can edit their own photo"""
+    photo = Photo.objects.get(id=photo_id)
+
+    if request.method != "POST":
+        form = PhotoForm(instance=photo)
+    else:
+        form = PhotoForm(request.POST, request.FILES, instance=photo)
+        if form.is_valid():
+            form.save()
+            return redirect("dg_photography:my_photos")
+    context = {"photo": photo, "form": form}
+    return render(request, "dg_photography/edit_photo.html", context)

@@ -20,4 +20,6 @@ urlpatterns = [
     path("photos/<int:photo_id>/", views.photo, name="photo"),
     # A page displaying all photos submitted by user
     path("my_photos/", views.my_photos, name="my_photos"),
+    # A page for a user to edit their photo 
+    path('edit_photo/<int:photo_id>/', views.edit_photo, name="edit_photo"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

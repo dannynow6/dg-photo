@@ -14,4 +14,6 @@ urlpatterns = [
     path("photo_blog/<int:article_id>/", views.article, name="article"),
     # A Page to display articles user has created 
     path("my_articles/", views.my_articles, name="my_articles"), 
+    # A Page for users to edit their articles 
+    path('edit_article/<int:article_id>/', views.edit_article, name="edit_article"), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

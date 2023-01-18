@@ -46,3 +46,19 @@ def my_articles(request):
     )
     context = {"my_articles": my_articles}
     return render(request, "photo_blog/my_articles.html", context)
+
+
+@login_required
+def edit_article(request, article_id):
+    """User can edit an existing article"""
+    article = BlogArticle.objects.get(id=article_id)
+
+    if request.method != "POST":
+        form = BlogArticleForm(instance=article)
+    else:
+        form = BlogArticleForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect("photo_blog:my_articles")
+    context = {"article": article, "form": form}
+    return render(request, "photo_blog/edit_article.html", context)

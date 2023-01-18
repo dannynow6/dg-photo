@@ -15,6 +15,8 @@
                     <h5>{{ article.title }}</h5>
                     <p>{{ article.date_published }}</p>
                     <a href="{% url 'photo_blog:article' article.id %}"> View</a>
+                    <br />
+                    <a href="{% url 'photo_blog:edit_article' article.id %}"> Edit</a>
                 </article>
             </li>
             {% empty %}

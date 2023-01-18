@@ -5,11 +5,17 @@ import random
 # from django.contrib.auth.decorators import login_required
 from .models import Photo
 from .forms import PhotoForm
+from photo_blog.models import BlogArticle
 
 # Main site page
 def index(request):
     """The home page for dg_photography"""
-    return render(request, "dg_photography/index.html")
+    articles = BlogArticle.objects.all()
+    x = random.randint(1, len(articles))
+    article_id = x
+    article = BlogArticle.objects.get(id=article_id)
+    context = {"article": article}
+    return render(request, "dg_photography/index.html", context)
 
 
 @login_required

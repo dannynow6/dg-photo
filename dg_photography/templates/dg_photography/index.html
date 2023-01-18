@@ -1,5 +1,6 @@
 {% extends "dg_photography/base.html" %} {% load static %} {% load bootstrap4 %}
 {% block content %}
+<div class="container w-80">
   <div class="shadow-lg p-2 m-3">
     <div class="card w-80">
       <div id="carouselControl" class="carousel slide" data-ride="carousel">
@@ -57,6 +58,26 @@
   </div>
   <br />
   
+</div>
+<br />
+<div class="container w-80">
+  <article class="border-bottom border-muted pb-2">
+    <h6 class="text-muted text-center border-bottom border-muted pb-2">Featured Article</h6>
+    <a class="nav-link text-right" href="{% url 'photo_blog:photo_blog' %}">Blog</a>
+    <br />
+    <h6 class="text-secondary text-center mb-2">{{ article.title }}</h6>
+    <p class="text-secondary text-center">{{ article.description }}</p>
+  </article>
+  <article>
+    {% if article.image %}
+    <img src="{{ article.image.url }}" style="max-width:750px;max-height:500px;">
+    <br />
+    {% else %}
+    <p>No image</p>
+    {% endif %}
+    <br />
+    <p>{{ article.article }}</p>
+</article>
 </div>
 
 {% endblock content %}

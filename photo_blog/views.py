@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from .models import BlogArticle
 from .forms import BlogArticleForm
 
@@ -12,7 +12,8 @@ def photo_blog(request):
     context = {"articles": articles}
     return render(request, "photo_blog/photo_blog.html", context)
 
-@login_required 
+
+@login_required
 def new_blog_article(request):
     """New Blog Article Form"""
     if request.method != "POST":
@@ -20,8 +21,10 @@ def new_blog_article(request):
     else:
         form = BlogArticleForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect("photo_blog:photo_blog")
+            new_article = form.save(commit=False)
+            new_article.owner = request.user
+            new_article.save()
+            return redirect("photo_blog:my_articles")
     context = {
         "form": form,
     }
@@ -33,3 +36,13 @@ def article(request, article_id):
     article = BlogArticle.objects.get(id=article_id)
     context = {"article": article}
     return render(request, "photo_blog/article.html", context)
+
+
+@login_required
+def my_articles(request):
+    """Show all articles created by current user"""
+    my_articles = BlogArticle.objects.filter(owner=request.user).order_by(
+        "date_published"
+    )
+    context = {"my_articles": my_articles}
+    return render(request, "photo_blog/my_articles.html", context)

@@ -18,4 +18,6 @@ urlpatterns = [
     path("photos/", views.photos, name="photos"),
     # page for viewing individual photo details
     path("photos/<int:photo_id>/", views.photo, name="photo"),
+    # A page displaying all photos submitted by user
+    path("my_photos/", views.my_photos, name="my_photos"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

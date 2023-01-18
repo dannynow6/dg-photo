@@ -19,8 +19,10 @@ def new_photo(request):
     else:
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect("dg_photography:photos")
+            new_photo = form.save(commit=False)
+            new_photo.owner = request.user
+            new_photo.save()
+            return redirect("dg_photography:my_photos")
 
     context = {
         "form": form,
@@ -47,3 +49,11 @@ def photo(request, photo_id):
     photo = Photo.objects.get(id=photo_id)
     context = {"photo": photo}
     return render(request, "dg_photography/photo.html", context)
+
+
+@login_required
+def my_photos(request):
+    """Show all photos a user has created/submitted"""
+    my_photos = Photo.objects.filter(owner=request.user).order_by("year_taken")
+    context = {"my_photos": my_photos}
+    return render(request, "dg_photography/my_photos.html", context)

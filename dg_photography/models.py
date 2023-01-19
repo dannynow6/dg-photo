@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # dg_photography App Models
 
@@ -41,6 +42,7 @@ class Photo(models.Model):
     lens_model = models.CharField(max_length=125, blank=True)
     focal_length = models.CharField(max_length=50, blank=True)
     picture = models.ImageField(upload_to="photos/", blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     def __str__(self) -> str:
         """return a string representation of model"""

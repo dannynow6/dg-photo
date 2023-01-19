@@ -16,3 +16,11 @@ from about:
             <img src="{% static 'img/logo_color.png' %}" width="30" height="30" class="d-inline-block align-top">
             DG Photography
         </div>
+
+<ul class="list-group">
+            {% for article in articles %}
+            <li class="list-group-item">{{ article.title }}    | by {{ article.author }}    | {{ article.date_published }}    |<a href="{% url 'photo_blog:article' article.id %}"> View</a></li>
+            {% empty %}
+            <li>There are no articles</li>
+            {% endfor %}
+        </ul>
